@@ -61,28 +61,28 @@ resource "aws_s3_object" "bootstrap_xml" {
 }
 
 
-resource "aws_s3_bucket_object" "init-cft_txt" {
+resource "aws_s3_object" "init-cft_txt" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
   acl    = "private"
   key    = "config/init-cfg.txt"
   source = "../modules/bootstrap_files/init-cfg.txt"
 }
 
-resource "aws_s3_bucket_object" "software" {
+resource "aws_s3_object" "software" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
   acl    = "private"
   key    = "software/"
   source = "/dev/null"
 }
 
-resource "aws_s3_bucket_object" "license" {
+resource "aws_s3_object" "license" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
   acl    = "private"
   key    = "license/authcodes"
   source = "/dev/null"
 }
 
-resource "aws_s3_bucket_object" "content" {
+resource "aws_s3_object" "content" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
   acl    = "private"
   key    = "content/"
