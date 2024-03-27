@@ -53,12 +53,13 @@ resource "aws_vpc_endpoint_route_table_association" "s3" {
   vpc_endpoint_id = aws_vpc_endpoint.s3.id
 }
 
-resource "aws_s3_bucket_object" "bootstrap_xml" {
+resource "aws_s3_object" "bootstrap_xml" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
   acl    = "private"
   key    = "config/bootstrap.xml"
   source = "../modules/bootstrap_files/bootstrap.xml"
 }
+
 
 resource "aws_s3_bucket_object" "init-cft_txt" {
   bucket = aws_s3_bucket.bootstrap_bucket_ngfw.id
